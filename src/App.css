@@ -1,0 +1,229 @@
+.App {
+  /*text-align: center;*/
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+.background {
+  background-size: 100% 100%;
+  height: 400px;
+  background-position: center center;
+  background-size: contain;
+}
+.background1 {
+  background-image: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg');
+}
+.background2 {
+  background-image: url('https://lh3.googleusercontent.com/chI0E76OI6DsLH61mJIy1XUDsqA83MGVq5kYeC_iP6odPSyEcN3m36JK2iCsKrP7Y6KIoYay7DSxPwzQldJ9Tdc=h200');
+}
+.background3 {
+  background-image: url('http://images.all-free-download.com/images/graphiclarge/delicious_food_04_hd_pictures_167550.jpg');
+}
+.background4 {
+  background-image: url('https://media.istockphoto.com/photos/indian-food-picture-id526749337?k=6&m=526749337&s=612x612&w=0&h=Wibu9NVR0yuZ-Egv9ppF3-On4qkjxYp1h92kvj50_vg=');
+}
+.slick-next {
+    right: 0px;
+}
+.slick-prev {
+    left: 0px;
+}
+.loginInput {
+  padding: 5px;
+}
+.layoutContainer {
+  background-image: url('https://media.istockphoto.com/photos/indian-food-picture-id526749337?k=6&m=526749337&s=612x612&w=0&h=Wibu9NVR0yuZ-Egv9ppF3-On4qkjxYp1h92kvj50_vg=');
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+}
+.transparentLayout {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+}
+.loginPanel {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    /*overflow-y: scroll;*/
+    background: #fff;
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    z-index: 10001;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .loginPanelTransition {
+    transition: display .5s ease-out,
+  }
+  .inputContainer {
+    border: 1px solid grey;
+    width: 100%;
+    outline: none;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 15px;
+  }
+  .overlay {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #282c3f;
+    opacity: .7;
+    overflow: hidden;
+}
+.loginButton {
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 50px;
+    padding: 0 2rem;
+    letter-spacing: 0;
+    color: #fff;
+    background-color: #fc8019;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.12);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.createOrLogin {
+  color: #fc8019;
+  font-weight: bold;
+  cursor: pointer;
+}
+.createOrLogin:hover {
+  color: #fc8019
+}
+.loginButton:hover {
+  text-decoration: none;
+  box-shadow: 0 2px 8px #d4d5d9
+}
+.loginHeader {
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+  /*.listItem:first-child {
+    padding-left: 60px;
+  }*/
+.header {
+  height: 60px;
+  background-color: white;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
+}
+
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.listItem {
+  padding: 20px;
+  width: 300px;
+}
+.listItemImg {
+  width: 100%;
+}
+.listItemImg:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 2px grey;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    min-height: 75px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.navbar-brand {
+  padding: 0px 15px;
+}
+.cartValue {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    font-size: 14px;
+    font-weight: 600;
+}
+._2MSid {
+    fill: #fff;
+    stroke-width: 2px;
+    stroke: #282c3f;
+}
+.iconContainer {
+  position: relative;
+  height: 20px;
+  cursor: pointer;
+}
+.listItemPricePanel {
+  padding-left: 0px;
+  display: flex;
+  justify-content: space-around;
+}
+.vegIndicator {
+  width: 15px;
+  height: 13px;
+  display: inline-block;
+}
+.foodName {
+  font-size: 17px;
+  font-weight: bold;
+}
+.listItemUl {
+  padding-left: 0px;
+}
+.listItemUl li {
+  padding: 15px;
+}
+.listItemUl li:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 1px grey;
+}
+.activeList {
+  background-color: orange
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
