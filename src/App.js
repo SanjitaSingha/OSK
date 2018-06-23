@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Login from './mainPage/Login';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import reducers from './reducers';
+import Router from './Router';
+
+
+const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
+
 
 class App extends Component {
   ComponentDidMount() {
@@ -22,9 +32,11 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <Login />
-      </div>
+      <Provider store={createStoreWithMiddleware(reducers)}>
+        <div className="App">
+          <Router />
+        </div>
+      </Provider>
     );
   }
 }

@@ -158,13 +158,26 @@
 .listItem {
   padding: 20px;
   width: 300px;
+  /*margin-bottom: 15px;*/
 }
 .listItemImg {
   width: 100%;
 }
-.listItemImg:hover {
+a:hover {
+  text-decoration: none;
+}
+.listItem:hover {
   cursor: pointer;
   box-shadow: 0px 0px 5px 2px grey;
+}
+/*.listItemImg:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 2px grey;
+}*/
+.addCartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .navbar-default .navbar-nav>li>a {
     color: #777;
@@ -196,6 +209,9 @@
   height: 20px;
   cursor: pointer;
 }
+.icon-close:hover {
+  cursor: pointer;
+}
 .listItemPricePanel {
   padding-left: 0px;
   display: flex;
@@ -214,7 +230,14 @@
   padding-left: 0px;
 }
 .listItemUl li {
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
   padding: 15px;
+}
+.listItemUl li span {
+  font-size: 17px;
+  font-weight: bold;
 }
 .listItemUl li:hover {
   cursor: pointer;

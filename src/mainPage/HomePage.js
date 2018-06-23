@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from 'react-sidebar';
 import Header from '../components/Header';
-import { Navbar, NavItem, Nav, NavDropdown, MenuItem, Grid, Row, Col } from 'react-bootstrap';
+import { Navbar, NavItem, Nav, NavDropdown, MenuItem, Grid, Row, Col, Button } from 'react-bootstrap';
 const Arr = [
   {
     name: 'Food item Name',
@@ -75,27 +75,7 @@ class HomePage extends Component {
       return str;
     }
   };
-  renderList() {
-    return Arr.map(d => {
-      return (
-        <Col xs={6} md={4} sm={6} className='listItem'>
-          <img
-            className='listItemImg'
-            src={"https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg"}  alt="OSK logo" width="300" />
-          <h5 className='foodName'>{d.name}</h5>
-          <p numberOfLines={2}>{this.textTruncate(d.description, 45)}</p>
-          <ul className='listItemPricePanel'>
-            <li>
-              <span className='vegIndicator' style={{ backgroundColor: d.veg ? 'green' : 'red'}}></span>
-            </li>
-            <li>{d.type}</li>
-            <li>Rs. {d.price}</li>
-          </ul>
-          <p className='text-center'>ADD TO CART</p>
-        </Col>
-      );
-    });
-  }
+
   render() {
     return (
       <div>
@@ -138,19 +118,57 @@ class HomePage extends Component {
            </Nav>
          </Navbar.Collapse>
         </Navbar>
-        <div className='bodyContainer' style={{ display: 'flex' }}>
-          <div style={{ width: 380, height: 500, backgroundColor: 'orange' }}>
-          </div>
+        <div className='bodyContainer'>
           <div>
-            <p>HomePage</p>
+            <Grid bsClass='' style={{ backgroundColor: 'orange' }}>
+              <Row className="show-grid">
+                <Col xs={12} md={7} sm={6} className=''>
+                <img
+                  style={{ minWidth: '100%', height: 'auto' }}
+                  className=''
+                   src={require("../assets/images/foodPic.jpg")}  alt="OSK logo" width="300" />
+                </Col>
+                <Col xs={12} md={5} sm={6} className='' style={{ marginTop: 15 }}>
+                  <h5 className='foodName'>Food name</h5>
+                  <p>No. of times ordered</p>
+                  <ul className='listItemPricePanel'>
+                    <li>
+                      <span className='vegIndicator' style={{ backgroundColor: 'veg' ? 'green' : 'red'}}></span>
 
-            <Grid bsClass='listContainer'>
+                    </li>
+                    <li>A-LA-CARTE</li>
+                    <li>Rs. 1256</li>
+                  </ul>
+                  <p>Ingredients</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <select name="quantity" >
+                      <option value={1}>1</option>
+                      <option value={2}>2</option>
+                      <option value={3}>3</option>
+                      <option value={4}>4</option>
+                    </select>
+                    <Button bsStyle="danger" className='addCartButton'>ADD TO CART</Button>
+                  </div>
 
-                <Row className="show-grid">
-                  {this.renderList()}
-                </Row>
-
+                </Col>
+              </Row>
             </Grid>
+            <div style={{ padding: 15 }}>
+              <p>
+                He went such dare good mr fact. The small own seven saved man age ﻿no offer.
+                Suspicion did mrs nor furniture smallness. Scale whole downs often leave not eat.
+                An expression reasonably cultivated indulgence mr he surrounded instrument.
+                Gentleman eat and consisted are pronounce distrusts.
+                Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy.
+                Me in resolution pianoforte continuing we. Most my no spot felt by no.
+                He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written
+                account ferrars moments. Too objection for elsewhere her preferred allowance her.
+                Marianne shutters mr steepest to me.
+                Up mr ignorant produced distance although is sociable blessing.
+                Ham whom call all lain like.
+              </p>
+            </div>
+
           </div>
         </div>
       </div>

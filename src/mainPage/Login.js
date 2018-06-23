@@ -6,10 +6,11 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 import Slider from 'react-slick';
+import { connect } from 'react-redux';
 import HomePage from './HomePage';
-import { Navbar, NavItem, Nav, NavDropdown, MenuItem, Grid, Row, Col } from 'react-bootstrap';
+import { Navbar, NavItem, Nav, NavDropdown, MenuItem, Grid, Row, Col, Button } from 'react-bootstrap';
+import { addItemCart } from '../actions';
 const Arr = [
   {
     name: 'Food item Name',
@@ -70,7 +71,9 @@ class Login extends Component {
     super(props);
     this.state = {
       redirectToReferrer: false,
-      loginOpen: false
+      loginOpen: false,
+      showCartButton: false,
+      clickedId: 0
     };
   }
 
@@ -98,9 +101,12 @@ class Login extends Component {
     }
   };
   renderList() {
-    return Arr.map(d => {
+    return Arr.map((d, i) => {
       return (
-        <Col xs={6} md={4} sm={6} className='listItem'>
+        <Col xs={6} md={4} sm={6} className='listItem'
+          onMouseOut={() => this.setState({ showCartButton: false })}
+          onMouseOver={() => this.setState({ showCartButton: true, clickedId: i })}>
+          <Link to="/food">
           <img
             className='listItemImg'
             src={"https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg"}  alt="OSK logo" width="300" />
@@ -113,7 +119,10 @@ class Login extends Component {
             <li>{d.type}</li>
             <li>Rs. {d.price}</li>
           </ul>
-          <p className='text-center'>ADD TO CART</p>
+          <div className='addCartContainer' style={{ opacity: i === this.state.clickedId && this.state.showCartButton ? 1 : 0 }}>
+            <Button bsStyle="danger" className='addCartButton' onClick={() => this.props.addItemCart(d)}>ADD TO CART</Button>
+          </div>
+          </Link>
         </Col>
       );
     });
@@ -212,37 +221,39 @@ class Login extends Component {
         </div>
 
         <div className='bodyContainer' style={{ display: 'flex' }}>
-          <div style={{ width: 380, height: 500, marginRight: 65 }}>
-            <ul className='listItemUl'>
-              <li className='activeList'>
-                <i className='fa fa-home' />
-                <span> All</span>
-              </li>
-              <li className=''>
-                <i className='fa fa-home' />
-                <span> Meals</span>
-              </li>
-              <li className=''>
-                <i className='fa fa-home' />
-                <span> Vegetarian Option</span>
-              </li>
-              <li className=''>
-                <i className='fa fa-home' />
-                <span> Non-Veg</span>
-              </li>
-              <li>
-                <img src={require("../assets/images/Food-Pizza-icon.png")}  alt="OSK" height="35" width="35" />
-                <span> A-LA-CARTE</span>
-              </li>
-              <li>
-                <img src={require("../assets/images/CloudyNight.png")}  alt="OSK" height="65" width="65" />
-                <span> Late Night</span>
-              </li>
-              <li>
-                <img src={require("../assets/images/salad-icon.png")}  alt="OSK" height="65" width="65" />
-                <span> Diet Meal</span>
-              </li>
-            </ul>
+          <div style={{ position: 'relative', width: 300, marginRight: 40 }}>
+            <div style={{ height: 0, width: 300, position: 'sticky', top: 15, marginTop: 15 }}>
+              <ul className='listItemUl'>
+                <li className='activeList'>
+                  <i className='fa fa-home' />
+                  <span> All</span>
+                </li>
+                <li className=''>
+                  <i className='fa fa-home' />
+                  <span> Meals</span>
+                </li>
+                <li className=''>
+                  <i className='fa fa-home' />
+                  <span> Vegetarian Option</span>
+                </li>
+                <li className=''>
+                  <i className='fa fa-home' />
+                  <span> Non-Veg</span>
+                </li>
+                <li>
+                  <img src={require("../assets/images/Food-Pizza-icon.png")}  alt="OSK" height="35" width="35" />
+                  <span> A-LA-CARTE</span>
+                </li>
+                <li>
+                  <img src={require("../assets/images/CloudyNight.png")}  alt="OSK" height="65" width="65" />
+                  <span> Late Night</span>
+                </li>
+                <li>
+                  <img src={require("../assets/images/salad-icon.png")}  alt="OSK" height="65" width="65" />
+                  <span> Diet Meal</span>
+                </li>
+              </ul>
+            </div>
           </div>
           <div>
             <Grid bsClass='listContainer'>
@@ -268,4 +279,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect(null, { addItemCart })(Login);
