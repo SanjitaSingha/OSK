@@ -21,30 +21,7 @@
 .App-intro {
   font-size: large;
 }
-.background {
-  background-size: 100% 100%;
-  height: 400px;
-  background-position: center center;
-  background-size: contain;
-}
-.background1 {
-  background-image: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg');
-}
-.background2 {
-  background-image: url('https://lh3.googleusercontent.com/chI0E76OI6DsLH61mJIy1XUDsqA83MGVq5kYeC_iP6odPSyEcN3m36JK2iCsKrP7Y6KIoYay7DSxPwzQldJ9Tdc=h200');
-}
-.background3 {
-  background-image: url('http://images.all-free-download.com/images/graphiclarge/delicious_food_04_hd_pictures_167550.jpg');
-}
-.background4 {
-  background-image: url('https://media.istockphoto.com/photos/indian-food-picture-id526749337?k=6&m=526749337&s=612x612&w=0&h=Wibu9NVR0yuZ-Egv9ppF3-On4qkjxYp1h92kvj50_vg=');
-}
-.slick-next {
-    right: 0px;
-}
-.slick-prev {
-    left: 0px;
-}
+
 .loginInput {
   padding: 5px;
 }
@@ -80,7 +57,7 @@
   .loginPanelTransition {
     transition: display .5s ease-out,
   }
-  .inputContainer {
+  /*.inputContainer {
     border: 1px solid grey;
     width: 100%;
     outline: none;
@@ -88,7 +65,7 @@
     padding-left: 5px;
     padding-right: 5px;
     margin-top: 15px;
-  }
+  }*/
   .overlay {
     z-index: 10000;
     position: fixed;
@@ -186,6 +163,172 @@ a:hover {
     align-items: center;
     display: flex;
 }
+
+/*Login */
+.getAppText {
+  font-weight: bold;
+}
+.loginText {
+  font-size: 20px;
+  color: white; margin: 15px;
+}
+.mainHeader {
+  font-size: 27px;
+  margin-bottom: 45px;
+}
+.searchButton {
+  background-image: linear-gradient(to bottom,#FFD500 0,#FFD500 100%);
+  background-color: #FFD500;
+  border-color: #FFD500;
+  font-weight: bold;
+  width: 120px;
+  margin-bottom: 10px;
+}
+.searchButton:hover {
+  background-color: #FFD500;
+  border-color: #FFD500;
+}
+.foodInput {
+  border-radius: 5px;
+  border: 1px solid grey;
+  width: 100%;
+  outline: none;
+  height: 45px;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-top: 15px;
+  width: 420px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.locationInput {
+  border-radius: 5px;
+  border: 1px solid grey;
+  outline: none;
+  height: 45px;
+  background-color: white;
+  font-size: 17px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+.createAcButton {
+  background-image: linear-gradient(to bottom,transparent 0,transparent 100%);
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  border-width: 1px;
+  height: 45px;
+  transition: all.5s ease-out;
+}
+.createAcButton:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+
+
+.collectionSection {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.heading {
+  font-size: 25px;
+  font-weight: bold;
+}
+.collectionPara {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+.col-md-4:first-child {
+  padding-left: 0px;
+}
+.trendingNowSection {
+  margin-bottom: 60px;
+}
+.trendingListItem {
+  padding: 15px;
+  transition: all .5s ease-out;
+}
+.trendingListItem .listItemImg {
+  transition: all .5s ease-out;
+}
+.trendingListItem:hover .listItemImg {
+  transform: scale(1.3); /* Equal to scaleX(0.7) scaleY(0.7) */
+}
+/*.trendingListItem:hover {
+  padding: 10px;
+}*/
+.addCartContainer {
+  transition: all .5s ease-out;
+}
+/*.background {
+  background-size: 100% 100%;
+  height: 270px;
+  background-position: center center;
+  background-size: contain;
+}
+.background1 {
+  background-image: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg');
+}
+.background2 {
+  background-image: url('https://lh3.googleusercontent.com/chI0E76OI6DsLH61mJIy1XUDsqA83MGVq5kYeC_iP6odPSyEcN3m36JK2iCsKrP7Y6KIoYay7DSxPwzQldJ9Tdc=h200');
+}
+.background3 {
+  background-image: url('http://images.all-free-download.com/images/graphiclarge/delicious_food_04_hd_pictures_167550.jpg');
+}
+.background4 {
+  background-image: url('https://media.istockphoto.com/photos/indian-food-picture-id526749337?k=6&m=526749337&s=612x612&w=0&h=Wibu9NVR0yuZ-Egv9ppF3-On4qkjxYp1h92kvj50_vg=');
+}*/
+.slick-next {
+    right: 0px;
+}
+.slick-prev {
+    left: 0px;
+}
+.slick-slide {
+  margin-right: 15px;
+}
+
+.collectionCard {
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 1px #B9B9B9;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+.collectionsImage {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.collectionFoodName {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+}
+.linkColor {
+  color: black;
+}
+.linkColor:hover {
+  color: black
+}
+
+.crowdListItem {
+  padding: 15px;
+  transition: all .5s ease-out;
+  width: 285px;
+}
+.crowdListItem .listItemImg {
+  transition: all .5s ease-out;
+}
+.crowdListItem:hover .listItemImg {
+  transform: scale(1.3); /* Equal to scaleX(0.7) scaleY(0.7) */
+}
+
+/*loginEnd*/
 .navbar-brand {
   padding: 0px 15px;
 }
@@ -246,6 +389,68 @@ a:hover {
 .activeList {
   background-color: orange
 }
+.footer {
+  background-color: #2C2F38;
+}
+.socialContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/*footer*/
+.footerLine::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #505050;
+  content: ''
+}
+.footerHeading {
+  color: #868585;
+  font-weight: bold;
+}
+footer {
+  padding-top: 30px;
+}
+footer ul {
+  padding-left: 0px;
+}
+footer ul li a {
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  transition: all .5s ease-out;
+}
+footer ul li {
+  transition: all .5s ease-out;
+  padding-top: 10px;
+}
+footer ul li a:hover {
+  color: white;
+  font-weight: bold;
+}
+address {
+  color: white;
+  font-size: 17px;
+}
+.socialCircle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.socialCircle a {
+  color: white;
+
+}
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
