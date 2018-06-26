@@ -6,6 +6,10 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Navbar, NavItem, Nav, NavDropdown, MenuItem, Grid, Row, Col, Button } from 'react-bootstrap';
+import { addItemCart } from '../actions';
+import '../css/AllFood.css';
 
 const Arr = [
   {
@@ -91,7 +95,13 @@ const Arr = [
   }
 ];
 
-export default class AllFood extends Component {
+class AllFood extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clickedId: 0,
+    }
+  }
 
   textTruncate(str, length, ending) {
     if (length == null) {
@@ -110,26 +120,28 @@ export default class AllFood extends Component {
   renderList() {
     return Arr.map((d, i) => {
       return (
-        <Col xs={6} md={4} sm={6} className='listItem'
+        <Col xs={6} md={4} sm={6}
           onMouseOut={() => this.setState({ showCartButton: false })}
           onMouseOver={() => this.setState({ showCartButton: true, clickedId: i })}>
-          <Link to="/food" className='linkColor'>
-          <img
-            className='listItemImg'
-            src={"https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg"}  alt="OSK logo" width="300" />
-          <h5 className='foodName'>{d.name}</h5>
-          <p>{this.textTruncate(d.description, 45)}</p>
-          <ul className='listItemPricePanel'>
-            <li>
-              <span className='vegIndicator' style={{ backgroundColor: d.veg ? 'green' : 'red'}}></span>
-            </li>
-            <li>{d.type}</li>
-            <li>Rs. {d.price}</li>
-          </ul>
-          <div className='addCartContainer' style={{ opacity: i === this.state.clickedId && this.state.showCartButton ? 1 : 0 }}>
-            <Button bsStyle="danger" className='addCartButton' onClick={() => this.props.addItemCart(d)}>ADD TO CART</Button>
+          <div className='listItem'>
+            <Link to="/food" className='linkColor'>
+              <img
+                className='listItemImg'
+                src={"https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=food-dinner-lunch-70497.jpg&fm=jpg"}  alt="OSK logo" width="300" />
+              <h5 className='foodName'>{d.name}</h5>
+              <p>{this.textTruncate(d.description, 45)}</p>
+              <ul className='listItemPricePanel'>
+                <li>
+                  <span className='vegIndicator' style={{ backgroundColor: d.veg ? 'green' : 'red'}}></span>
+                </li>
+                <li>{d.type}</li>
+                <li>Rs. {d.price}</li>
+              </ul>
+              <div className='addCartContainer' style={{ opacity: i === this.state.clickedId && this.state.showCartButton ? 1 : 0 }}>
+                <Button bsStyle="danger" className='addCartButton' onClick={(e) => { e.preventDefault(); this.props.addItemCart(d); }}>ADD TO CART</Button>
+              </div>
+            </Link>
           </div>
-          </Link>
         </Col>
       );
     });
@@ -137,7 +149,7 @@ export default class AllFood extends Component {
 
   render () {
     return (
-      <div className='bodyContainer' style={{ display: 'flex' }}>
+      <div id='allFood' className='bodyContainer' style={{ display: 'flex' }}>
         <div style={{ position: 'relative', width: 300, marginRight: 40 }}>
           <div style={{ height: 0, width: 300, position: 'sticky', top: 15, marginTop: 15 }}>
             <ul className='listItemUl'>
@@ -185,3 +197,4 @@ export default class AllFood extends Component {
     )
   }
 }
+export default connect(null, { addItemCart })(AllFood)

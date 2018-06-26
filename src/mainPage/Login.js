@@ -93,7 +93,9 @@ class Login extends Component {
       redirectToReferrer: false,
       loginOpen: false,
       showCartButton: false,
-      clickedId: 0
+      clickedId: 0,
+      loginForm: true,
+      forgotPassword: false,
     };
   }
 
@@ -103,7 +105,8 @@ class Login extends Component {
 
   toggleLoginPanel(loginOpen) {
     this.setState({
-      loginOpen: !loginOpen
+      loginOpen: !loginOpen,
+      forgotPassword: false,
     });
   }
 
@@ -124,7 +127,8 @@ class Login extends Component {
 
   toggleRegister() {
     this.setState({
-      loginText: true,
+      loginForm: !this.state.loginForm,
+      forgotPassword: false,
     });
   }
 
@@ -184,6 +188,133 @@ class Login extends Component {
     });
   }
 
+  renderForgotPassword() {
+    if(this.state.forgotPassword)  {
+      return (
+        <form>
+          <div>
+            <div>
+              <input type="tel"
+                placeholder='Registered mobile number'
+                value={this.state.mobileNum}
+                onChange={(val) => this.setState({ mobileNum: val.target.value })}
+                className="inputContainer" name="mobile" id="mobile" tabindex="1" autocomplete="off" />
+
+              <label for="mobile">Phone number</label>
+            </div>
+          </div>
+          <p>
+            We will send a temporary password to your Registered Mobile Number.
+            You can later change the password in the Profile Secition
+          </p>
+          <div>
+            <a className="loginButton"><input type="submit" style={{ display: 'none' }} />Generate password</a>
+          </div>
+        </form>
+      );
+    }
+    return (
+      <form>
+        <div>
+          <div>
+            <input type="tel"
+              value={this.state.mobileNum}
+              onChange={(val) => this.setState({ mobileNum: val.target.value })}
+              className="inputContainer" name="mobile" id="mobile" tabindex="1" autocomplete="off" />
+
+            <label for="mobile">Phone number</label>
+          </div>
+          <div>
+            <input type="password"
+              value={this.state.password} onChange={(val) => this.setState({ password: val.target.value })}
+              className="inputContainer" name="password" id="password" tabindex="2" autocomplete="off" />
+            <label for="password">Password</label>
+          </div>
+          <div className="forgotPassword" onClick={() => { this.setState({ forgotPassword: true }); }}>Forgot?</div>
+        </div>
+        <div>
+          <a className="loginButton"><input type="submit" style={{ display: 'none' }} />Login</a>
+        </div>
+      </form>
+    );
+  }
+
+  renderRegisterOrLoginForm() {
+    if(this.state.loginForm) {
+      return (
+        <div>
+          <div className="" style={{ height: 130, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div className="loginHeader">Login</div>
+              <div className=""></div>
+              <div className="">or <a className="createOrLogin" onClick={() => this.toggleRegister()}>create an account</a></div>
+            </div>
+            <img src={require("../assets/images/logoBackTrans.png")} width="100" height="105" alt=""/>
+          </div>
+          {this.renderForgotPassword()}
+
+        </div>
+      );
+    }
+    return (
+      <div>
+        <div className="" style={{ height: 130, marginTop: -15, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div className="loginHeader">Sign Up</div>
+            <div className=""></div>
+            <div className="">or <a className="createOrLogin" onClick={() => this.toggleRegister()}>signin to your account</a></div>
+          </div>
+          <img src={require("../assets/images/logoBackTrans.png")} width="100" height="105" alt=""/>
+        </div>
+        <form>
+          <div>
+            <div>
+              <input type="tel"
+                value={this.state.mobileNum}
+                onChange={(val) => this.setState({ mobileNum: val.target.value })}
+                className="inputContainer" name="mobile" id="mobile" tabindex="1" autocomplete="off" />
+
+              <label for="mobile">Phone number</label>
+            </div>
+            <div>
+              <input type="text"
+                value={this.state.name}
+                onChange={(val) => this.setState({ name: val.target.value })}
+                className="inputContainer" name="name" id="name" tabindex="1" autocomplete="off" />
+
+              <label for="name">Name</label>
+            </div>
+            <div>
+              <input type="email"
+                value={this.state.email}
+                onChange={(val) => this.setState({ email: val.target.value })}
+                className="inputContainer" name="email" id="email" tabindex="1" autocomplete="off" />
+
+              <label for="name">Email Address</label>
+            </div>
+            <div>
+              <input type="password"
+                value={this.state.password} onChange={(val) => this.setState({ password: val.target.value })}
+                className="inputContainer" name="password" id="password" tabindex="2" autocomplete="off" />
+              <label for="password">Password</label>
+            </div>
+            <div>
+              <input type="refcode"
+                value={this.state.refcode}
+                onChange={(val) => this.setState({ refcode: val.target.value })}
+                className="inputContainer" name="refcode" id="refcode" tabindex="1" autocomplete="off" />
+
+              <label for="name">Referral Code</label>
+            </div>
+          </div>
+          <div>
+            <a className="loginButton"><input type="submit" style={{ display: 'none' }} />Continue</a>
+          </div>
+        </form>
+      </div>
+    )
+  }
+
   renderLoginOrHomePage() {
     if(this.state.redirectToReferrer) {
       return <HomePage />
@@ -203,40 +334,13 @@ class Login extends Component {
                   <div>
                     <div>
                       <div style={{paddingLeft: 40, paddingRight: 43, width: 445, paddingTop: 30 }}>
+                        <span className="icon-close" onClick={() => this.toggleLoginPanel(this.state.loginOpen)}>
+                          <i className='fa fa-times-circle' style={{ fontSize: 25 }}/>
+                        </span>
+                        <div>
+                          {this.renderRegisterOrLoginForm()}
 
-                          <span className="icon-close" onClick={() => this.toggleLoginPanel(this.state.loginOpen)}>
-                            <i className='fa fa-times-circle' style={{ fontSize: 25 }}/>
-                          </span>
-                          <div className="" style={{ height: 130, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div>
-                              <div className="loginHeader">Login</div>
-                              <div className=""></div>
-                              <div className="">or <a className="createOrLogin" onClick={() => this.toggleRegister()}>create an account</a></div>
-                            </div>
-                            <img src={require("../assets/images/logoBackTrans.png")} width="100" height="105" alt=""/>
-                          </div>
-                        <form>
-                          <div>
-                            <div>
-                              <input type="tel"
-                                value={this.state.mobileNum}
-                                onChange={(val) => this.setState({ mobileNum: val.target.value })}
-                                className="inputContainer" name="mobile" id="mobile" tabindex="1" autocomplete="off" />
-
-                              <label for="mobile">Phone number</label>
-                            </div>
-                            <div>
-                              <input type="password"
-                                value={this.state.password} onChange={(val) => this.setState({ password: val.target.value })}
-                                className="inputContainer" name="password" id="password" tabindex="2" autocomplete="off" />
-                              <label for="password">Password</label>
-                            </div>
-                            <div className="forgotPassword">Forgot?</div>
-                          </div>
-                          <div>
-                            <a className="loginButton"><input type="submit" style={{ display: 'none' }} />Login</a>
-                          </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -248,8 +352,8 @@ class Login extends Component {
         <div className='layoutContainer'>
           <div className='transparentLayout'>
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <span onClick={() => this.toggleLoginPanel(this.state.loginOpen)} style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+                <span onClick={() => { this.setState({ loginForm: true, }); this.toggleLoginPanel(this.state.loginOpen); }} style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                  <svg className="_1GTCc undefined" viewBox="6 0 12 24" height="30" width="30" fill="#fff">
                    <path d="M11.9923172,11.2463768 C8.81761115,11.2463768 6.24400341,8.72878961 6.24400341,5.62318841 C6.24400341,2.5175872 8.81761115,0 11.9923172,0 C15.1670232,0 17.740631,2.5175872 17.740631,5.62318841 C17.740631,8.72878961 15.1670232,11.2463768 11.9923172,11.2463768 Z M11.9923172,9.27536232 C14.0542397,9.27536232 15.7257581,7.64022836 15.7257581,5.62318841 C15.7257581,3.60614845 14.0542397,1.97101449 11.9923172,1.97101449 C9.93039471,1.97101449 8.25887628,3.60614845 8.25887628,5.62318841 C8.25887628,7.64022836 9.93039471,9.27536232 11.9923172,9.27536232 Z M24,24 L0,24 L1.21786143,19.7101449 L2.38352552,15.6939891 C2.85911209,14.0398226 4.59284263,12.7536232 6.3530098,12.7536232 L17.6316246,12.7536232 C19.3874139,12.7536232 21.1256928,14.0404157 21.6011089,15.6939891 L22.9903494,20.5259906 C23.0204168,20.63057 23.0450458,20.7352884 23.0641579,20.8398867 L24,24 Z M21.1127477,21.3339312 L21.0851024,21.2122487 C21.0772161,21.1630075 21.0658093,21.1120821 21.0507301,21.0596341 L19.6614896,16.2276325 C19.4305871,15.4245164 18.4851476,14.7246377 17.6316246,14.7246377 L6.3530098,14.7246377 C5.4959645,14.7246377 4.55444948,15.4231177 4.32314478,16.2276325 L2.75521062,21.6811594 L2.65068631,22.0289855 L21.3185825,22.0289855 L21.1127477,21.3339312 Z"></path>
                  </svg>
@@ -257,27 +361,35 @@ class Login extends Component {
                     Login
                   </span>
                 </span>
-                <Button style={{ marginLeft: 20 }} className='createAcButton'>Create an account</Button>
+                <Button style={{ marginLeft: 20 }} className='createAcButton' onClick={() => { this.setState({ loginForm: false }); this.toggleLoginPanel(this.state.loginOpen); }}>
+                  Create an account
+                </Button>
               </div>
 
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-              <img className='hidden-sm-down' src={require("../assets/images/logoBackTrans.png")}  alt="OSK logo" height="150" width="150" />
+              <img className='logoHome' src={require("../assets/images/logoBackTrans.png")}  alt="OSK logo" height="150" width="150" />
               <h3 style={{ color: 'white' }} className='mainHeader'>The best online food delivery and snacks in Guwahati</h3>
               <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <select name="location" className='locationInput' >
-                  <option value={'Jatia'}>Jatia</option>
-                  <option value={'Kahilipara'}>Kahilipara</option>
-                  <option value={'Chandmari'}>Chandmari</option>
-                  <option value={'Beltola'}>Beltola</option>
-                  <option value={'GS road'}>GS road</option>
-                  <option value={'Zoo Road'}>Zoo Road</option>
-                  <option value={'Bangagarh'}>Bangagarh</option>
-                </select>
-                <input type="text" className="foodInput"
-                  placeholder="search your favourite food"
-                  onChange={(val) => this.setState({ mobileNum: val.target.value })}
-                />
+                <div className="locationInput">
+                  <i className='fa fa-map-marker' style={{ fontSize: 25 }} />
+                  <select name="location" >
+                    <option value={'Jatia'}>Jatia</option>
+                    <option value={'Kahilipara'}>Kahilipara</option>
+                    <option value={'Chandmari'}>Chandmari</option>
+                    <option value={'Beltola'}>Beltola</option>
+                    <option value={'GS road'}>GS road</option>
+                    <option value={'Zoo Road'}>Zoo Road</option>
+                    <option value={'Bangagarh'}>Bangagarh</option>
+                  </select>
+                </div>
+                <div className="foodInput">
+                  <i className='fa fa-search' />
+                  <input type="text"
+                    placeholder="search your favourite food"
+                    onChange={(val) => this.setState({ mobileNum: val.target.value })}
+                  />
+                </div>
                 <Button className='searchButton'>Search</Button>
               </div>
             </div>
@@ -421,7 +533,7 @@ class Login extends Component {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
               <Button className='searchButton'>
-                <Link to='/food' className='linkColor'>
+                <Link to='/all_food' className='linkColor'>
                   View All
                 </Link>
               </Button>
@@ -434,7 +546,7 @@ class Login extends Component {
           <div className='container'>
 
             <div className='row footerLine'>
-              <div className='col-md-4'>
+              <div className='col-md-4 col-sm-4 col-xs-6'>
                 <h4 className='footerHeading'>CONTACT</h4>
                 <ul>
                   <li>
@@ -455,7 +567,7 @@ class Login extends Component {
                 </ul>
 
               </div>
-              <div className='col-md-4'>
+              <div className='col-md-4 col-sm-4 col-xs-6'>
                 <h4 className='footerHeading'>LEGAL</h4>
 
                 <ul>
@@ -469,10 +581,10 @@ class Login extends Component {
 
                 </ul>
               </div>
-              <div className='col-md-4'>
+              <div className='col-md-4 col-sm-4 col-xs-12'>
                 <h4 className='footerHeading'>AVAILABLE ON</h4>
 
-                <div  style={{ marginTop: 25, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className='appDownloadContainer'>
 
                   <div>
                     <a style={{ display: 'block', marginBottom: 20 }}target="_blank" href="https://play.google.com/store/apps/details?id=com.arsaviva.osk&hl=en">

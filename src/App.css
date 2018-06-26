@@ -57,15 +57,7 @@
   .loginPanelTransition {
     transition: display .5s ease-out,
   }
-  /*.inputContainer {
-    border: 1px solid grey;
-    width: 100%;
-    outline: none;
-    height: 40px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-top: 15px;
-  }*/
+
   .overlay {
     z-index: 10000;
     position: fixed;
@@ -165,6 +157,20 @@ a:hover {
 }
 
 /*Login */
+
+/*Login Form*/
+.inputContainer {
+  border: 1px solid grey;
+  width: 100%;
+  outline: none;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+}
+.forgotPassword {
+  cursor: pointer;
+}
 .getAppText {
   font-weight: bold;
 }
@@ -174,7 +180,8 @@ a:hover {
 }
 .mainHeader {
   font-size: 27px;
-  margin-bottom: 45px;
+  margin-bottom: 35px;
+  text-align: center;
 }
 .searchButton {
   background-image: linear-gradient(to bottom,#FFD500 0,#FFD500 100%);
@@ -189,6 +196,9 @@ a:hover {
   border-color: #FFD500;
 }
 .foodInput {
+  display: flex;
+  align-items: center;
+  background-color: white;
   border-radius: 5px;
   border: 1px solid grey;
   width: 100%;
@@ -204,7 +214,17 @@ a:hover {
   font-size: 17px;
   margin-bottom: 10px;
 }
+.foodInput input {
+  width: 100%;
+  border: none;
+  padding: 5px;
+  outline: none;
+}
 .locationInput {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  background-color: white;
   border-radius: 5px;
   border: 1px solid grey;
   outline: none;
@@ -213,6 +233,12 @@ a:hover {
   font-size: 17px;
   width: 200px;
   margin-bottom: 10px;
+}
+.locationInput select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 .createAcButton {
   background-image: linear-gradient(to bottom,transparent 0,transparent 100%);
@@ -328,6 +354,91 @@ a:hover {
   transform: scale(1.3); /* Equal to scaleX(0.7) scaleY(0.7) */
 }
 
+@media screen and (max-width: 991px) {
+  /* 3 columns */
+  .col-md-4:first-child {
+    padding-left: 15px;
+  }
+}
+
+@media screen and (max-width: 835px) and (min-width: 716px) {
+  .logoHome {
+    width: 90px;
+    height: 90px;
+  }
+  .mainHeader {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .appDownloadContainer {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+}
+
+
+@media screen and (max-width: 715px) {
+  /* 3 columns */
+
+  .mainHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .logoHome {
+    width: 90px;
+    height: 90px;
+  }
+  .locationInput {
+    height: 35px;
+    font-size: 14px;
+  }
+  .foodInput {
+    height: 35px;
+    font-size: 14px;
+    width: 330px;
+  }
+  .createAcButton {
+    height: 35px;
+  }
+  .loginText {
+    font-size: 17px;
+    margin: 9px;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+  .collectionPara {
+    font-size: 15px;
+  }
+  .collectionFoodName {
+    font-size: 15px;
+  }
+  .foodName {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width:515px) {
+  .footerHeading {
+    font-size: 15px;
+  }
+  address, footer ul li a, footer ul li span {
+    font-size: 14px !important;
+  }
+
+}
+@media screen and (max-width: 375px) {
+  p {
+    font-size: 13px;
+  }
+  .btn {
+   font-size: 12px;
+ }
+
+}
+
 /*loginEnd*/
 .navbar-brand {
   padding: 0px 15px;
@@ -391,6 +502,11 @@ a:hover {
 }
 .footer {
   background-color: #2C2F38;
+}
+.appDownloadContainer {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
 }
 .socialContainer {
   display: flex;
