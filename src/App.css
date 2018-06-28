@@ -440,6 +440,9 @@ a:hover {
 }
 
 /*loginEnd*/
+.navbar {
+  margin-bottom: 0px;
+}
 .navbar-brand {
   padding: 0px 15px;
 }
@@ -472,10 +475,14 @@ a:hover {
   justify-content: space-around;
 }
 .vegIndicator {
-  width: 15px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   display: inline-block;
+  border-radius: 100%;
 }
+/*.vegIndicator::after {
+  content: "\f192";
+}*/
 .foodName {
   font-size: 17px;
   font-weight: bold;
@@ -498,7 +505,7 @@ a:hover {
   box-shadow: 0px 0px 2px 1px grey;
 }
 .activeList {
-  background-color: orange
+  background-color: #FFD500;
 }
 .footer {
   background-color: #2C2F38;

@@ -1,0 +1,260 @@
+.homePageFoodInput {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    /*border-radius: 3px;*/
+    box-shadow: 0 3px 15px 0 rgba(40,44,63,.1);
+    border: 1px solid rgba(0,0,0,.04);
+    outline: none;
+    height: 40px;
+    padding-left: 7px;
+    padding-right: 7px;
+
+    width: 300px;
+
+    font-size: 15px;
+
+}
+.homePageHeading {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.homeMainPara {
+  font-size: 17px;
+}
+.homePageFoodInput input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-left: 7px;
+}
+.homePagelistItemPricePanel {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+.homePagelistItemPricePanel li {
+  /*padding-right: 40px;*/
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+.homePagelistItemPricePanel li:not(:first-child) {
+  align-items: center;
+  /*padding-left: 30px;*/
+}
+.lightSmallGreyFont {
+  font-size: 13px;
+  color: grey;
+  margin-top: 7px;
+}
+.foodQuantitySelection {
+  border-radius: 0px;
+  width: 50px;
+  outline: none;
+  background-color: white;
+}
+.pricePanelBoldText {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}
+.homePagelistItemPricePanel li:not(:last-child) {
+  border-right: 1px solid grey;
+
+}
+.noOrderedContainer {
+   display: flex;
+   align-tems: center;
+   /*justify-content: space-between;*/
+ }
+ .alacarteText {
+   padding: 2px 5px;
+   color: white;
+   margin-right: 30px;
+ }
+ .noOrderText {
+   padding: 2px 5px;
+   color: white;
+   font-weight: bold;
+ }
+.floatSearchSection {
+  position: absolute;
+  height: 40px;
+  transform: translate3d(0,20px,0);
+  transition: transform .2s ease-in-out;
+}
+.homecheckboxWhiteBox {
+  background-color: white;
+  height: 40px;
+  padding: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+  box-shadow: 0 3px 15px 0 rgba(40,44,63,.1);
+  border: 1px solid rgba(0,0,0,.04);
+}
+.homePagecheckBoxContainer {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*.homePagecheckBoxContainer input {
+  display: none;
+}*/
+/*.homePageCheckBox {
+  cursor: pointer;
+  display: block;
+  height: 15px;
+  background-color: transparent;
+  transition: all .5s;
+  width: 15px;
+  border: 1.5px solid grey;
+
+}*/
+
+/* Hide the browser's default checkbox */
+.homePagecheckBoxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.homePageCheckBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: transparent;
+    border: 1.5px solid grey;
+    transition: all .5s;
+}
+
+/* On mouse-over, add a grey background color */
+.homePagecheckBoxContainer:hover input ~ .homePageCheckBox {
+    background-color: #ccc;
+}
+
+.homePagecheckBoxContainer:hover {
+    color: green;
+}
+
+/* When the checkbox is checked, add a blue background */
+.homePagecheckBoxContainer input:checked ~ .homePageCheckBox {
+    background-color: green;
+    border: 0;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.homePageCheckBox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.homePagecheckBoxContainer input:checked ~ .homePageCheckBox:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.homePagecheckBoxContainer .homePageCheckBox:after {
+
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.homePageAddCartButton {
+  background-color: white;
+  border: 0;
+  border-radius: 0;
+  height: 40px;
+  color: black;
+  font-weight: 500;
+  background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+  transition: background-image .3s ease-out
+}
+.homePageAddCartButton:hover, .homePageAddCartButton:focus {
+  color: white;
+  background-color: #c9302c;
+  font-weight: 500;
+  background-image: linear-gradient(to bottom,#c9302c 0,#c12e2a 100%);
+
+}
+
+.homePageListItemUl {
+  padding-left: 0px;
+    list-style: none;
+  padding-top: 30px;
+}
+.homePageListItemUl li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+  padding-right: 17px;
+
+}
+/*.homePageListItemUl li:first-child {
+  margin-top: 30px;
+}*/
+.homePageListItemUl li a {
+  color: black;
+}
+.homePageListItemUl li:hover a {
+  color: #fc8019;
+  font-weight: bold;
+}
+.homePageActiveList {
+  border-right: 3px solid #fc8019;
+}
+.homePageListItemUl .homePageActiveList a {
+  color: #fc8019;
+  font-weight: bold;
+}
+.homeSmallAddCartBtn {
+  border-radius: 0px;
+  background-color: white;
+  color: green;
+  width: 100px;
+  height: 33px;
+  outline: none;
+  background-color: white;
+  background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+
+}
+.homeSmallAddCartBtn:focus, .homeSmallAddCarBtn:hover {
+  background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+  outline: none;
+  color: green;
+  font-weight: 600;
+}
+.btn-default:hover, .btn-default:focus {
+  background-position: 0 0px;
+  background-color: white;
+  color: green;
+  font-weight: 600;
+
+}
+.homeDataListMenu:not(:last-child) {
+  border-bottom: 2px solid grey;
+}
+.homeDataListMenu:not(:first-child) {
+  margin-top: 30px;
+}
