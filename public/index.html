@@ -29,11 +29,93 @@
     -->
     <title>OSK</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <!-- <footer class='footer'>
+      <div class='container'>
+
+        <div class='row footerLine'>
+          <div class='col-md-4 col-sm-4 col-xs-6'>
+            <h4 class='footerHeading'>CONTACT</h4>
+            <ul>
+              <li>
+                <Link to='/about-us'>About Us</Link>
+              </li>
+              <li style={{ display: 'flex' }}>
+                <i class='fa fa-home' style={{ color: 'white', fontSize: 25, marginRight: 10 }}/>
+                <address>
+                  One Stop Kitchen<br/>
+                  <span>Beltola Tiniali</span><br/>
+                  <span>Guwahati-28, Assam</span>
+                </address>
+              </li>
+              <li style={{ display: 'flex' }}>
+                <i class='fa fa-phone' style={{ color: 'white', fontSize: 25, marginRight: 10 }}/>
+                <span style={{ color: 'white', fontSize: 17 }}>084738 09256</span>
+              </li>
+            </ul>
+
+          </div>
+          <div class='col-md-4 col-sm-4 col-xs-6'>
+            <h4 class='footerHeading'>LEGAL</h4>
+
+            <ul>
+              <li>
+                <Link class="legalLink" to="/food" alt="" target="_blank">Terms &amp; Conditions</Link>
+              </li>
+              <li style={{ display: 'flex' }}>
+                <i class='fa fa-lock' style={{ color: 'white', fontSize: 25, marginRight: 10 }}/>
+                <Link class="legalLink" to="/food" alt="" target="_blank">Privacy Policy</Link>
+              </li>
+
+            </ul>
+          </div>
+          <div class='col-md-4 col-sm-4 col-xs-12'>
+            <h4 class='footerHeading'>AVAILABLE ON</h4>
+
+            <div class='appDownloadContainer'>
+
+              <div>
+                <a style={{ display: 'block', marginBottom: 20 }}target="_blank" href="https://play.google.com/store/apps/details?id=com.arsaviva.osk&hl=en">
+                  <img src="https://b.zmtcdn.com/images/mobile/googleplay@2x.png?output-format=webp" alt="Download OSK for Android" height="40" />
+                </a>
+                <a class="pr20" target="_blank" href="">
+                  <img src="https://b.zmtcdn.com/images/mobile/applestore@2x.png?output-format=webp" alt="Download OSK for iOS" height="40" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style={{ height: 80, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+            <div class='col-md-7'>
+              <img src={require("../assets/images/logoBackTrans.png")}  alt="OSK logo" height="60" width="60" />
+            </div>
+
+            <div class="socialContainer col-md-5">
+              <div class="socialCircle">
+                <a target="_blank" href="mailto:oskguwahati@gmail.com">
+                  <i class='fa fa-envelope' />
+                </a>
+              </div>
+              <div class="socialCircle">
+                <a target="_blank" href="https://www.facebook.com/oskguwahati/">
+                  <i class='fa fa-facebook' style={{ fontSize: 17 }}/>
+                </a>
+              </div>
+              <div class="socialCircle">
+                <a target="_blank" href="https://www.instagram.com/oskguwahati/?hl=en">
+                  <i class='fa fa-instagram' style={{ fontSize: 18 }}/>
+                </a>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </footer> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -44,9 +126,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/7f4e29bb2a.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/react.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/react-dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.32.1/react-bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.32.1/react-bootstrap.min.js"></script> -->
   </body>
 </html>

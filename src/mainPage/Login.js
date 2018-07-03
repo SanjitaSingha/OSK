@@ -533,7 +533,7 @@ class Login extends Component {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
               <Button className='searchButton'>
-                <Link to='/all_food' className='linkColor'>
+                <Link to='/' className='linkColor'>
                   View All
                 </Link>
               </Button>

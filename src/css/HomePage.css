@@ -228,6 +228,11 @@
   color: #fc8019;
   font-weight: bold;
 }
+.cartEmptySection {
+   position: relative;
+   width: 200px;
+   zIndex: -100;
+}
 .homeSmallAddCartBtn {
   border-radius: 0px;
   background-color: white;
@@ -248,7 +253,7 @@
 .btn-default:hover, .btn-default:focus {
   background-position: 0 0px;
   background-color: white;
-  color: green;
+  /*color: green;*/
   font-weight: 600;
 
 }
@@ -257,4 +262,50 @@
 }
 .homeDataListMenu:not(:first-child) {
   margin-top: 30px;
+}
+
+.homeSideBar {
+   height: 0;
+   width: 215px;
+   position: sticky;
+   top: 185px;
+   marginTop: 15;
+}
+@media screen and (max-width: 1200px) {
+  .homeSideBar {
+     width: 180px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .homeSideBar {
+     width: 115px;
+  }
+  .homePageFoodInput {
+    width: 220px;
+    height: 33px;
+  }
+  .homecheckboxWhiteBox {
+    height: 33px;
+    padding: 7px;
+  }
+  .homePagecheckBoxContainer {
+    padding-left: 22px;
+  }
+  .homePageAddCartButton {
+    height: 33px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .homeSideBar {
+     width: 115px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .cartEmptySection {
+    display: none;
+  }
 }
